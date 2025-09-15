@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Log for {{ date }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    .section { margin-bottom: 20px; }
+    .section h2 { color: #34495e; }
+    ul { padding-left: 20px; }
+    .card {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>📅 Daily Log: {{ log.date }}</h1>
+
+  <div class="card section">
+    <h2>😌 Mood</h2>
+    <p>{{ log.mood }}</p>
+  </div>
+
+  <div class="card section">
+    <h2>📌 Key Events</h2>
+    <ul>
+      {% for event in log.key_events %}
+        <li>{{ event }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="card section">
+    <h2>⚡ Challenges</h2>
+    <ul>
+      {% if log.challenges %}
+        {% for c in log.challenges %}
+          <li>{{ c }}</li>
+        {% endfor %}
+      {% else %}
+        <li>None</li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="card section">
+    <h2>🌟 Positives</h2>
+    <ul>
+      {% if log.positives %}
+        {% for p in log.positives %}
+          <li>{{ p }}</li>
+        {% endfor %}
+      {% else %}
+        <li>None</li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="card section">
+    <h2>📝 Summary</h2>
+    <p>{{ log.summary }}</p>
+  </div>
+
+  <p><a href="/dashboard">⬅ Back to Dashboard</a></p>
+</body>
+</html>

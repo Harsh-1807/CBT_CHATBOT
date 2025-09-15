@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h2>📊 Dashboard - Daily Logs</h2>
+  <ul>
+    {% for log in logs %}
+      <li><a href="/log/{{ log }}">{{ log }}</a></li>
+    {% endfor %}
+  </ul>
+  <br>
+  <button onclick="window.location.href='/'">⬅ Back to Chat</button>
+</body>
+</html>
